@@ -74,6 +74,14 @@ then
     dpkg --add-architecture i386
     apt update
     apt install steam-installer
+
+    echo ""
+    read -p "## [Steam] Install amd64 libraries (only for AMD graphics)? (yes/empty)" _steamAmdLibs;
+
+    if [ "$_steamAmdLibs" != "" ]
+    then
+        apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
+    fi
 fi
 
 echo ""
