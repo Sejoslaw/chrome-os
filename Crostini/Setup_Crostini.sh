@@ -24,7 +24,7 @@ echo ""
 stable_repos="main contrib non-free non-free-firmware"
 
 echo ""
-read "## Enable stable Debian repositories ($stable_repos)? (yes/empty)" _stableRepos;
+read -p "## Enable stable Debian repositories ($stable_repos)? (yes/empty)" _stableRepos;
 
 if [ "$_stableRepos" != "" ]
 then
@@ -58,17 +58,22 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
+install_file_from_url() {
+    url_without_file=$1
+    file_name=$2
+
+    apt install wget
+    wget $url_without_file$file_name
+    apt install -y ./$file_name
+    rm $file_name
+}
+
 echo ""
 read -p "## Install Google Chrome in Crostini (from official DEB file)? (yes/empty)" _installChrome;
 
 if [ "$_installChrome" != "" ]
 then
-    file_name=google-chrome-stable_current_amd64.deb
-
-    apt install wget
-    wget https://dl.google.com/linux/direct/$file_name
-    apt install -y ./$file_name
-    rm $file_name
+    install_file_from_url "https://dl.google.com/linux/direct/" "google-chrome-stable_current_amd64.deb"
 fi
 
 echo ""
@@ -106,4 +111,20 @@ then
 
     echo "## Adding Flathub repo..."
     flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+fi
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##               Setting up 3rd Party Tools...                ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+echo ""
+read -p "## Install AT Launcher for Minecraft (3rd party software)? (yes/empty)" _installATLauncher;
+
+if [ "$_installATLauncher" != "" ]
+then
+    install_file_from_url "https://download.nodecdn.net/containers/atl/app/dist/linux/" "atlauncher-1.4-1.deb"
 fi
