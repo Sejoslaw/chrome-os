@@ -3,6 +3,19 @@
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
+echo "##        Welcome to Sejoslaw's Crostini Setup Script         ##"
+echo "##                                                            ##"
+echo "##  During setup you will be promped for some user-specific   ##"
+echo "##  configuration to make the system most optimized for you.  ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+sleep 7
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
 echo "##                 Stable Debian Repositories                 ##"
 echo "##                                                            ##"
 echo "################################################################"
