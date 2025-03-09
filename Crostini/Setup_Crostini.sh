@@ -38,9 +38,9 @@ echo "################################################################"
 echo ""
 
 echo ""
-read -p "## Install Google Chrome in Crostini (from official DEB file)? (yes/no or empty)" _installChrome;
+read -p "## Install Google Chrome in Crostini (from official DEB file)? (yes/empty)" _installChrome;
 
-if [ "$_installChrome" = "yes" ]
+if [ "$_installChrome" != "" ]
 then
     file_name=google-chrome-stable_current_amd64.deb
 
@@ -51,17 +51,24 @@ then
 fi
 
 echo ""
-read -p "## Install GNOME Boxes (from Debian repository)? (yes/no or empty)" _installGnomeBoxes;
+read -p "## Install GNOME Boxes (from Debian repository)? (yes/empty)" _installGnomeBoxes;
 
-if [ "$_installGnomeBoxes" = "yes" ]
+if [ "$_installGnomeBoxes" != "" ]
 then
     sudo apt install gnome-boxes
 fi
 
 echo ""
-read -p "## Install Flatpak? (yes/no or empty)" _installFlatpak;
+read -p "## Install Steam? (yes/empty)" _installSteam;
 
-if [ "$_installFlatpak" = "yes" ]
+if [ "$_installSteam" != "" ]
+then
+fi
+
+echo ""
+read -p "## Install Flatpak? (yes/empty)" _installFlatpak;
+
+if [ "$_installFlatpak" != "" ]
 then
     sudo apt install flatpak
 
