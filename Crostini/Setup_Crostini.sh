@@ -111,6 +111,14 @@ then
 
     echo "## Adding Flathub repo..."
     flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    echo ""
+    read -p "## [Flatpak] Install Podman Desktop? (yes/empty)" _flatpakPodmanDesktop;
+
+    if [ "$_flatpakPodmanDesktop" != "" ]
+    then
+        flatpak install flathub io.podman_desktop.PodmanDesktop
+    fi
 fi
 
 echo ""
@@ -150,4 +158,15 @@ then
     curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
     echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
     sudo apt update
+fi
+
+echo ""
+read -p "## Install Rancher Desktop (local Kubernetes cluster)? (yes/empty)" _installRancherDekstop;
+
+if [ "$_installRancherDekstop" != "" ]
+then
+    curl -s https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | gpg --dearmor | sudo dd status=none of=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
+    echo 'deb [signed-by=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg] https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./' | sudo dd status=none of=/etc/apt/sources.list.d/isv-rancher-stable.list
+    sudo apt update
+    sudo apt install rancher-desktop
 fi
