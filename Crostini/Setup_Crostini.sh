@@ -110,7 +110,7 @@ then
     apt install flatpak
 
     echo "## Adding Flathub repo..."
-    sudo flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     echo ""
     read -p "## [Flatpak] Install Podman Desktop? (yes/empty)" _flatpakPodmanDesktop;
