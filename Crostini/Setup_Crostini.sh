@@ -110,7 +110,7 @@ then
     apt install flatpak
 
     echo "## Adding Flathub repo..."
-    flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    sudo flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     echo ""
     read -p "## [Flatpak] Install Podman Desktop? (yes/empty)" _flatpakPodmanDesktop;
@@ -118,6 +118,14 @@ then
     if [ "$_flatpakPodmanDesktop" != "" ]
     then
         flatpak install flathub io.podman_desktop.PodmanDesktop
+    fi
+
+    echo ""
+    read -p "## [Flatpak] Install Bottles? (yes/empty)" _flatpakBottles;
+
+    if [ "$_flatpakBottles" != "" ]
+    then
+        flatpak install flathub com.usebottles.bottles
     fi
 fi
 
