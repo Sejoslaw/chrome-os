@@ -127,6 +127,14 @@ then
     then
         flatpak install flathub com.usebottles.bottles
     fi
+
+    echo ""
+    read -p "## [Flatpak] Install Brave web browser? (yes/empty)" _flatpakBrave;
+
+    if [ "$_flatpakBrave" != "" ]
+    then
+        flatpak install flathub com.brave.Browser
+    fi
 fi
 
 echo ""
