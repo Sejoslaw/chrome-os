@@ -167,6 +167,14 @@ then
 fi
 
 echo ""
+read -p "## Install Rust programming language? (yes/empty)" _installRust;
+
+if [ "$_installRust" != "" ]
+then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+echo ""
 read -p "## Configure JetBrains (IntelliJ, PyCharm, Rider, etc.) unofficial PPA? (yes/empty)" _configureJetBrains;
 
 if [ "$_configureJetBrains" != "" ]
