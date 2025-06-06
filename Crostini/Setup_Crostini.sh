@@ -46,7 +46,8 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-apt update && apt dist-upgrade -y && apt autoremove -y
+apt remove vim -y && apt autoremove -y
+apt update && apt full-upgrade -y && apt autoremove -y
 
 echo ""
 echo "################################################################"
