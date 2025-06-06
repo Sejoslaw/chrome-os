@@ -61,7 +61,7 @@ install_file_from_url() {
     url_without_file=$1
     file_name=$2
 
-    apt install wget
+    apt install wget -y
     wget $url_without_file$file_name
     apt install -y ./$file_name
     rm $file_name
@@ -80,7 +80,7 @@ read -p "## Install GNOME Boxes (from Debian repository)? (yes/empty)" _installG
 
 if [ "$_installGnomeBoxes" != "" ]
 then
-    apt install gnome-boxes
+    apt install gnome-boxes -y
 fi
 
 echo ""
@@ -90,14 +90,14 @@ if [ "$_installSteam" != "" ]
 then
     dpkg --add-architecture i386
     apt update
-    apt install steam-installer
+    apt install steam-installer -y
 
     echo ""
     read -p "## [Steam] Install amd64 libraries (only for AMD graphics)? (yes/empty)" _steamAmdLibs;
 
     if [ "$_steamAmdLibs" != "" ]
     then
-        apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
+        apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386 -y
     fi
 fi
 
@@ -106,7 +106,7 @@ read -p "## Install Flatpak? (yes/empty)" _installFlatpak;
 
 if [ "$_installFlatpak" != "" ]
 then
-    apt install flatpak
+    apt install flatpak -y
 
     echo "## Adding Flathub repo..."
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -157,12 +157,12 @@ read -p "## Install VS Code (from Microsoft repository)? (yes/empty)" _installCo
 
 if [ "$_installCode" != "" ]
 then
-    apt install wget gpg
+    apt install wget gpg -y
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
     sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
     echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
     rm -f packages.microsoft.gpg
-    apt install apt-transport-https && apt update && apt install code
+    apt install apt-transport-https -y && apt update && apt install code -y
 fi
 
 echo ""
@@ -191,7 +191,7 @@ then
     curl -s https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/Release.key | gpg --dearmor | sudo dd status=none of=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg
     echo 'deb [signed-by=/usr/share/keyrings/isv-rancher-stable-archive-keyring.gpg] https://download.opensuse.org/repositories/isv:/Rancher:/stable/deb/ ./' | sudo dd status=none of=/etc/apt/sources.list.d/isv-rancher-stable.list
     sudo apt update
-    sudo apt install rancher-desktop
+    sudo apt install rancher-desktop -y
 fi
 
 echo ""
