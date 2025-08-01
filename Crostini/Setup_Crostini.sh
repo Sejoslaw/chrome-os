@@ -128,7 +128,7 @@ then
     fi
 
     echo ""
-    read -p "## [Flatpak] Install Brave web browser? (yes/empty)" _flatpakBrave;
+    read -p "## [Flatpak] Install Brave Web Browser? (yes/empty)" _flatpakBrave;
 
     if [ "$_flatpakBrave" != "" ]
     then
@@ -206,4 +206,16 @@ then
     sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
     sudo apt update
     sudo apt install kubectl -y
+fi
+
+echo ""
+read -p "## Install Brave Web Browser? (yes/empty)" _installBrave;
+
+if [ "$_installBrave" != "" ]
+then
+    apt install curl
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
+    apt update
+    apt install brave-browser -y
 fi
