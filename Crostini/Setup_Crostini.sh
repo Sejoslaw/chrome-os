@@ -134,6 +134,14 @@ then
     then
         flatpak install flathub com.brave.Browser
     fi
+
+    echo ""
+    read -p "## [Flatpak] Install Flatseal? (yes/empty)" _flatpakFlatseal;
+
+    if [ "$_flatpakFlatseal" != "" ]
+    then
+        flatpak install flathub com.github.tchx84.Flatseal
+    fi
 fi
 
 echo ""
