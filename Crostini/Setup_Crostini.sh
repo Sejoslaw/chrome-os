@@ -84,6 +84,15 @@ then
 fi
 
 echo ""
+read -p "## Install Docker (from Debian repository)? (yes/empty)" _installDocker;
+
+if [ "$_installDocker" != "" ]
+then
+    apt install docker.io docker-compose -y
+    usermod -aG docker $USER
+fi
+
+echo ""
 read -p "## Install Steam (from Debian repository)? (yes/empty)" _installSteam;
 
 if [ "$_installSteam" != "" ]
