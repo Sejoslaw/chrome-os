@@ -151,6 +151,14 @@ then
     then
         flatpak install flathub com.github.tchx84.Flatseal
     fi
+
+    echo ""
+    read -p "## [Flatpak] Install GNOME Boxes? (yes/empty)" _flatpakBoxes;
+
+    if [ "$_flatpakBoxes" != "" ]
+    then
+        flatpak install flathub org.gnome.Boxes
+    fi
 fi
 
 echo ""
