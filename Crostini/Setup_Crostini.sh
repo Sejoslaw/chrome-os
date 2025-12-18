@@ -84,6 +84,14 @@ then
 fi
 
 echo ""
+read -p "## Install Podman (from Debian repository)? (yes/empty)" _installPodman;
+
+if [ "$_installPodman" != "" ]
+then
+    apt install podman -y
+fi
+
+echo ""
 read -p "## Install Docker (from Debian repository)? (yes/empty)" _installDocker;
 
 if [ "$_installDocker" != "" ]
