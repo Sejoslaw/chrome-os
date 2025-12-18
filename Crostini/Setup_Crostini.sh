@@ -93,6 +93,14 @@ then
 fi
 
 echo ""
+read -p "## Install Distrobox (from Debian repository)? (yes/empty)" _installDistrobox;
+
+if [ "$_installDistrobox" != "" ]
+then
+    apt install distrobox -y
+fi
+
+echo ""
 read -p "## Install Steam (from Debian repository)? (yes/empty)" _installSteam;
 
 if [ "$_installSteam" != "" ]
