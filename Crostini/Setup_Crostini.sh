@@ -89,6 +89,11 @@ read -p "## Install Podman (from Debian repository)? (yes/empty)" _installPodman
 if [ "$_installPodman" != "" ]
 then
     apt install podman -y
+
+    if ! grep -q "$USER" /etc/subuid; then
+      echo "$USER:100000:65536" | sudo tee -a /etc/subuid
+      echo "$USER:100000:65536" | sudo tee -a /etc/subgid
+    fi
 fi
 
 echo ""
