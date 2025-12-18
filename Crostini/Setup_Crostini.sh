@@ -125,6 +125,7 @@ then
 
     if [ "$_flatpakPodmanDesktop" != "" ]
     then
+        apt install podman -y
         flatpak install flathub io.podman_desktop.PodmanDesktop
     fi
 
