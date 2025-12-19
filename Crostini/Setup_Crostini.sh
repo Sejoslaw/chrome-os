@@ -97,6 +97,14 @@ then
 fi
 
 echo ""
+read -p "## Install Toolbox (Toolbx / podman-toolbox) (from Debian repository)? (yes/empty)" _installPodmanToolbox;
+
+if [ "$_installPodmanToolbox" != "" ]
+then
+    apt install podman-toolbox -y
+fi
+
+echo ""
 read -p "## Install Docker (from Debian repository)? (yes/empty)" _installDocker;
 
 if [ "$_installDocker" != "" ]
