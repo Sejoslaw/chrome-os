@@ -167,6 +167,14 @@ then
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     echo ""
+    read -p "## [Flatpak] Install Steam? (yes/empty)" _flatpakSteam;
+
+    if [ "$_flatpakSteam" != "" ]
+    then
+        flatpak install flathub com.valvesoftware.Steam
+    fi
+
+    echo ""
     read -p "## [Flatpak] Install Podman Desktop? (yes/empty)" _flatpakPodmanDesktop;
 
     if [ "$_flatpakPodmanDesktop" != "" ]
