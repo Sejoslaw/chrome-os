@@ -105,6 +105,23 @@ then
 fi
 
 echo ""
+read -p "## Install Virtual Machine Manager (virt-manager) (from Debian repository)? (yes/empty)" _installVirtManager;
+
+if [ "$_installVirtManager" != "" ]
+then
+    apt install -y virt-manager libvirt-daemon-system libvirt-clients qemu-kvm
+    
+    adduser $USER libvirt
+    adduser $USER kvm
+
+    systemctl enable libvirtd
+    systemctl start libvirtd
+
+    virsh net-start default
+    virsh net-autostart default
+fi
+
+echo ""
 read -p "## Install Docker (from Debian repository)? (yes/empty)" _installDocker;
 
 if [ "$_installDocker" != "" ]
