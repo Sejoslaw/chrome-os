@@ -175,6 +175,14 @@ then
     fi
 
     echo ""
+    read -p "## [Flatpak] Install ATLauncher? (yes/empty)" _flatpakATLauncher;
+
+    if [ "$_flatpakATLauncher" != "" ]
+    then
+        flatpak install flathub com.atlauncher.ATLauncher
+    fi
+
+    echo ""
     read -p "## [Flatpak] Install Podman Desktop? (yes/empty)" _flatpakPodmanDesktop;
 
     if [ "$_flatpakPodmanDesktop" != "" ]
