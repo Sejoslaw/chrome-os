@@ -1,8 +1,12 @@
 podman run -it --rm \
   --userns keep-id \
-  --ipc=host \
   --cap-drop=all \
-  --cap-add={net_raw,audit_write,chown,setuid,setgid,dac_override} \
+  --cap-add=net_raw \
+  --cap-add=audit_write \
+  --cap-add=chown \
+  --cap-add=setuid \
+  --cap-add=setgid \
+  --cap-add=dac_override \
   --security-opt label=disable \
   --security-opt seccomp=unconfined \
   --device /dev/dri/card0:/dev/dri/card0 \

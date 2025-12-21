@@ -10,7 +10,10 @@ podman run -it --rm \
   --cpus=2 \
   --userns keep-id \
   --cap-drop=all \
-  --cap-add={net_raw,chown,setuid,setgid} \
+  --cap-add=net_raw \
+  --cap-add=chown \
+  --cap-add=setuid \
+  --cap-add=setgid \
   --security-opt label=disable \
   --security-opt seccomp=unconfined \
   --security-opt no-new-privileges \

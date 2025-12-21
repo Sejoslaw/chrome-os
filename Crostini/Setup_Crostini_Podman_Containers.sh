@@ -26,45 +26,44 @@ then
     podman build -t fedora-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
 
     # Copy runners
-    mkdir podman-runner
-    cp ./Podman/Containerfiles/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
-    cp ./Podman/Containerfiles/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
+    mkdir ~/podman-runner
+    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
+    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 
-    cp ./Podman/Containerfiles/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
-    cp ./Podman/Containerfiles/Brave-Disposable-Hardened/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+    cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
+    cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
     
     # Prepare .bashrc file
-    cat <<EOF >> ~/.bashrc
+    printf '
 
-    alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y"
+alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y"
 
-    disp-arch-toolbox() {
-        podman run --rm -it arch-toolbox:latest
-    }
+disp-arch-toolbox() {
+    podman run --rm -it arch-toolbox:latest
+}
 
-    disp-debian-toolbox() {
-        podman run --rm -it debian-toolbox:latest
-    }
+disp-debian-toolbox() {
+    podman run --rm -it debian-toolbox:latest
+}
 
-    disp-fedora-toolbox() {
-        podman run --rm -it fedora-toolbox:latest
-    }
+disp-fedora-toolbox() {
+    podman run --rm -it fedora-toolbox:latest
+}
 
-    disp-fedora-gui() {
-        sh ~/podman-runner/fedora-toolbox-gui.run.sh
-    }
+disp-fedora-gui() {
+    sh ~/podman-runner/fedora-toolbox-gui.run.sh
+}
 
-    disp-fedora-gui-xfce() {
-        sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
-    }
+disp-fedora-gui-xfce() {
+    sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
+}
 
-    disp-fedora-gui-brave() {
-        sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
-    }
+disp-fedora-gui-brave() {
+    sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
+}
 
-    disp-fedora-gui-brave-persistent-volume() {
-        sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
-    }
-
-    EOF
+disp-fedora-gui-brave-persistent-volume() {
+    sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+}
+' >> ~/.bashrc
 fi
