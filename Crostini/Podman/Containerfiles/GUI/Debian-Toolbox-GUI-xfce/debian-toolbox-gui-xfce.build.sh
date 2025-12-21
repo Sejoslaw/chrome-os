@@ -1,0 +1,1 @@
+podman build -t debian-toolbox-gui-xfce -f debian-toolbox-gui-xfce.containerfile .
