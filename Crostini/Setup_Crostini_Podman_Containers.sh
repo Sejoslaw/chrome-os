@@ -22,8 +22,11 @@ then
     podman build -t arch-toolbox-gui -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.containerfile .
     podman build -t fedora-toolbox-gui -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.containerfile .
     
-    # Build application-configured images
+    # Build application-configured images - Arch
     podman build -t arch-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.containerfile .
+    podman build -t arch-toolbox-gui-yay -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.containerfile .
+    
+    # Build application-configured images - Fedora
     podman build -t fedora-toolbox-gui-brave -f ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.containerfile .
     podman build -t fedora-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
 
@@ -32,6 +35,7 @@ then
 
     cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.run.sh ~/podman-runner/arch-toolbox-gui.run.sh
     cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.run.sh ~/podman-runner/arch-toolbox-gui-xfce.run.sh
+    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.run.sh ~/podman-runner/arch-toolbox-gui-yay.run.sh
 
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
@@ -65,6 +69,10 @@ disp-arch-gui() {
 
 disp-arch-gui-xfce() {
     ~/podman-runner/arch-toolbox-gui-xfce.run.sh
+}
+
+disp-arch-gui-yay() {
+    ~/podman-runner/arch-toolbox-gui-yay.run.sh
 }
 
 disp-fedora-gui() {
