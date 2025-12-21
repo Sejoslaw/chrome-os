@@ -1,0 +1,1 @@
+podman build -t fedora-toolbox-gui-brave -f fedora-toolbox-gui-brave.containerfile .
