@@ -1,23 +1,26 @@
 FROM docker.io/library/archlinux:latest
 
+# Initialize Pacman keys
 RUN pacman-key --init && pacman-key --populate archlinux && pacman -Syyuuu --noconfirm
 
+# Install Core utilities
 RUN pacman -S --noconfirm \
-        tmux \
-        base-devel \
-        vim \
-        git less \
+        tmux base-devel \
+        vim git less \
         python python-pip python-virtualenv \
-        sudo \
-        bash-completion words 
+        sudo bash-completion words
 
+# Create dedicated user
 RUN useradd -m -G wheel archuser && echo "archuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER archuser
 WORKDIR /home/archuser
 
+RUN sudo pacman -Syyuuu --noconfirm
+
 RUN rm ~/.bashrc
 
+# Create customized prompt
 RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
         echo 'alias grep="grep --color=auto"' >> ~/.bashrc && \
         echo "alias py='source ~/.venv/bin/activate'" >> ~/.bashrc && \
@@ -28,6 +31,7 @@ RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
 RUN echo "set -g default-shell /bin/bash" >> ~/.tmux.conf && \
     echo "set -g default-command /bin/bash" >> ~/.tmux.conf
 
+# Setup default git user
 RUN git config --global user.email "archuser@container.local" && \
     git config --global user.name "Arch User" && \
     git config --global init.defaultBranch main

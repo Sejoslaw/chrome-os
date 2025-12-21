@@ -1,0 +1,1 @@
+podman build -t arch-toolbox-gui -f arch-toolbox-gui.containerfile .

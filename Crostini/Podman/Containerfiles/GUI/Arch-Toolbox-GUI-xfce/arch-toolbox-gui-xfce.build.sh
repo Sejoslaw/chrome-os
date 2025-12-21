@@ -1,0 +1,1 @@
+podman build -t arch-toolbox-gui-xfce -f arch-toolbox-gui-xfce.containerfile .

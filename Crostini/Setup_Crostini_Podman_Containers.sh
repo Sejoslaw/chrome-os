@@ -19,14 +19,20 @@ then
     podman build -t fedora-toolbox -f ./Podman/Containerfiles/Terminal/fedora-toolbox.containerfile .
 
     # Build GUI-configured images
+    podman build -t arch-toolbox-gui -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.containerfile .
     podman build -t fedora-toolbox-gui -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.containerfile .
     
     # Build application-configured images
+    podman build -t arch-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.containerfile .
     podman build -t fedora-toolbox-gui-brave -f ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.containerfile .
     podman build -t fedora-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
 
     # Copy runners
     mkdir ~/podman-runner
+
+    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.run.sh ~/podman-runner/arch-toolbox-gui.run.sh
+    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.run.sh ~/podman-runner/arch-toolbox-gui-xfce.run.sh
+
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 
@@ -51,6 +57,14 @@ disp-debian-toolbox() {
 
 disp-fedora-toolbox() {
     podman run --rm -it fedora-toolbox:latest
+}
+
+disp-arch-gui() {
+    ~/podman-runner/arch-toolbox-gui.run.sh
+}
+
+disp-arch-gui-xfce() {
+    ~/podman-runner/arch-toolbox-gui-xfce.run.sh
 }
 
 disp-fedora-gui() {
