@@ -9,7 +9,6 @@ podman run -it --rm \
   --memory=4g \
   --cpus=2 \
   --userns keep-id \
-  --ipc=host \
   --cap-drop=all \
   --cap-add={net_raw,chown,setuid,setgid} \
   --security-opt label=disable \
@@ -20,7 +19,6 @@ podman run -it --rm \
   -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
   -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/run/user/1000/wayland-0:ro \
   -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
-  -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
   -v "$VOLUME_NAME":/home/fedorauser:Z \
   --tmpfs /run/user/1000:mode=700,size=512M \
   --tmpfs /tmp:mode=1777,size=1G \
