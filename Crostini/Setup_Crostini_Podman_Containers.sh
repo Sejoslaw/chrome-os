@@ -32,6 +32,9 @@ then
 
     cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
     cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+
+    # Make all runners executable
+    chmod +x ~/podman-runner/*.sh
     
     # Prepare .bashrc file
     printf '
@@ -51,19 +54,19 @@ disp-fedora-toolbox() {
 }
 
 disp-fedora-gui() {
-    sh ~/podman-runner/fedora-toolbox-gui.run.sh
+    ~/podman-runner/fedora-toolbox-gui.run.sh
 }
 
 disp-fedora-gui-xfce() {
-    sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
+    ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 }
 
 disp-fedora-gui-brave() {
-    sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
+    ~/podman-runner/fedora-toolbox-gui-brave.run.sh
 }
 
 disp-fedora-gui-brave-persistent-volume() {
-    sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+    ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
 }
 ' >> ~/.bashrc
 fi

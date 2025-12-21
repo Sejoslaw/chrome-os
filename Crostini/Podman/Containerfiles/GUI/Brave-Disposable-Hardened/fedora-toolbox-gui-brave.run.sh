@@ -1,3 +1,5 @@
+#!/bin/bash
+
 podman run -it --rm \
   --read-only \
   --memory=4g \

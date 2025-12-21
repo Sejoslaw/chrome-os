@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 VOLUME_NAME="brave-persistent-volume"
 

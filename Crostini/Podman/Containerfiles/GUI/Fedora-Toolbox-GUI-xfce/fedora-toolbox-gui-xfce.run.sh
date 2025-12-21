@@ -1,3 +1,5 @@
+#!/bin/bash
+
 podman run -it --rm \
   --userns keep-id \
   --cap-drop=all \
