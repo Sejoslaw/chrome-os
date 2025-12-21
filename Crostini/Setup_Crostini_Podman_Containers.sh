@@ -13,12 +13,16 @@ read -p "## Setup Podman containers? (may take some time) (yes/empty)" _setupPod
 
 if [ "$_setupPodmanContainers" != "" ]
 then
+    # Build Core images
     podman build -t arch-toolbox -f ./Podman/Containerfiles/Terminal/arch-toolbox.containerfile .
     podman build -t debian-toolbox -f ./Podman/Containerfiles/Terminal/debian-toolbox.containerfile .
     podman build -t fedora-toolbox -f ./Podman/Containerfiles/Terminal/fedora-toolbox.containerfile .
-    
-    sh ./Podman/Containerfiles/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.build.sh
+
+    # Build GUI-configured images
     sh ./Podman/Containerfiles/Fedora-Toolbox-GUI/fedora-toolbox-gui.build.sh
+    
+    # Build application-configured images
+    sh ./Podman/Containerfiles/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.build.sh
     sh ./Podman/Containerfiles/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.build.sh
     
     cat <<EOF >> ~/.test
