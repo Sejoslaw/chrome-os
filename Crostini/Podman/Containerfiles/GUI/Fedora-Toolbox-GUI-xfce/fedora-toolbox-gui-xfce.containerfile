@@ -8,6 +8,7 @@ RUN dnf -y install \
     dnf clean all
 
 USER fedorauser
-WORKDIR /home/fedorauser
+
+RUN sudo dnf -y update
 
 CMD ["/usr/bin/tmux"]

@@ -14,13 +14,16 @@ RUN dnf -y install \
 # Prepare entrypoint script
 ENV ENTRYPOINT_PATH=/usr/local/bin/entrypoint.sh
 RUN echo '#!/bin/bash' > $ENTRYPOINT_PATH && \       
-    echo 'chown -R fedorauser:fedorauser /home/fedorauser /run/user/1000' >> $ENTRYPOINT_PATH && \
+    echo 'chown -R fedorauser:fedorauser /home/fedorauser' >> $ENTRYPOINT_PATH && \
     echo 'chmod 755 /home/fedorauser' >> $ENTRYPOINT_PATH && \
-    echo 'chmod 700 /run/user/1000' >> $ENTRYPOINT_PATH && \
     echo 'find /run/user/1000 -type s -exec chmod 666 {} + 2>/dev/null' >> $ENTRYPOINT_PATH && \
-    echo 'exec runuser -u fedorauser -- dbus-run-session -- "$@"' >> $ENTRYPOINT_PATH     
+    echo 'dbus-run-session -- "$@"' >> $ENTRYPOINT_PATH     
 
 RUN chmod +x $ENTRYPOINT_PATH            
+
+USER fedorauser
+
+RUN sudo dnf -y update
 
 ENV DISPLAY=:0 \
     WAYLAND_DISPLAY=wayland-0 \

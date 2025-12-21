@@ -14,4 +14,6 @@ ENV OZONE_PLATFORM=wayland
 
 USER fedorauser
 
+RUN sudo dnf -y update
+
 CMD ["brave-browser", "--ozone-platform=wayland", "--enable-features=UseOzonePlatform"]
