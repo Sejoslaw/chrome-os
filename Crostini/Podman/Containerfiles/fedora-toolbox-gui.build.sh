@@ -1,0 +1,1 @@
+podman build -t fedora-toolbox-gui -f fedora-toolbox-gui.containerfile .
