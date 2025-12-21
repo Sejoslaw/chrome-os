@@ -40,7 +40,7 @@ then
             -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \\
             --tmpfs /run/user/1000:mode=700,size=512M \\
             --tmpfs /home/fedorauser:mode=755,size=10G \\
-            fedora-toolbox-gui:latest
+            fedora-toolbox-gui-xfce:latest
     }
 
     brave-disp() {
