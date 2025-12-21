@@ -27,7 +27,7 @@ then
     podman build -t arch-toolbox-gui-yay -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.containerfile .
     
     # Build application-configured images - Fedora
-    podman build -t fedora-toolbox-gui-brave -f ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.containerfile .
+    podman build -t fedora-toolbox-gui-brave -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.containerfile .
     podman build -t fedora-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
 
     # Copy runners
@@ -40,8 +40,8 @@ then
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
     cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 
-    cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
-    cp ./Podman/Containerfiles/GUI/Brave-Disposable-Hardened/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
+    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
 
     # Make all runners executable
     chmod +x ~/podman-runner/*.sh
