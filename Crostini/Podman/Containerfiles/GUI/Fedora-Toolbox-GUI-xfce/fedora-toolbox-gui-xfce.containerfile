@@ -13,6 +13,9 @@ RUN dnf -y install \
     adwaita-icon-theme google-noto-sans-fonts \
     pipewire-libs pulseaudio-libs
 
+RUN dnf -y install \
+    thunar xfce4-terminal
+
 RUN dnf clean all
 
 RUN useradd -u 1000 -m -G wheel fedorauser && echo "fedorauser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

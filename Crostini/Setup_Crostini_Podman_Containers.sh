@@ -16,10 +16,11 @@ then
     podman build -t arch-toolbox -f ./Podman/Containerfiles/Terminal/arch-toolbox.containerfile .
     podman build -t debian-toolbox -f ./Podman/Containerfiles/Terminal/debian-toolbox.containerfile .
     podman build -t fedora-toolbox -f ./Podman/Containerfiles/Terminal/fedora-toolbox.containerfile .
-
-    sh ./Podman/Containerfiles/Fedora-Toolbox-GUI/fedora-toolbox-gui.build.sh
+    
     sh ./Podman/Containerfiles/Brave-Disposable-Hardened/fedora-toolbox-gui-brave.build.sh
-
+    sh ./Podman/Containerfiles/Fedora-Toolbox-GUI/fedora-toolbox-gui.build.sh
+    sh ./Podman/Containerfiles/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.build.sh
+    
     cat <<EOF >> ~/.test
 
     alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y"
