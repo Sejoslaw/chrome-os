@@ -18,4 +18,6 @@ podman run -it --rm \
   -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
   --tmpfs /run/user/1000:mode=700,size=512M \
   --tmpfs /home/archuser:mode=755,size=10G \
+  --tmpfs /tmp:mode=1777,size=1G \
+  --tmpfs /var/tmp:mode=1777,size=512M \
   arch-toolbox-gui:latest
