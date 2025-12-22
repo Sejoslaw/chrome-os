@@ -15,10 +15,9 @@ RUN useradd -m -G wheel archuser && echo "archuser ALL=(ALL) NOPASSWD: ALL" >> /
 
 USER archuser
 WORKDIR /home/archuser
+RUN sudo chown -R archuser:archuser /home/archuser
 
 RUN sudo pacman -Syyuuu --noconfirm
-
-RUN rm ~/.bashrc
 
 # Create customized prompt
 RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
