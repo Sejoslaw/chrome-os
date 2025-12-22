@@ -14,38 +14,38 @@ read -p "## Setup Podman containers? (may take some time) (yes/empty)" _setupPod
 if [ "$_setupPodmanContainers" != "" ]
 then
     # Build Core images
-    podman build -t arch-toolbox -f ./Podman/Containerfiles/Terminal/arch-toolbox.containerfile .
-    podman build -t debian-toolbox -f ./Podman/Containerfiles/Terminal/debian-toolbox.containerfile .
-    podman build -t fedora-toolbox -f ./Podman/Containerfiles/Terminal/fedora-toolbox.containerfile .
+    podman build -t arch-toolbox -f ./chrome-os/Crostini/Podman/Containerfiles/Terminal/arch-toolbox.containerfile .
+    podman build -t debian-toolbox -f ./chrome-os/Crostini/Podman/Containerfiles/Terminal/debian-toolbox.containerfile .
+    podman build -t fedora-toolbox -f ./chrome-os/Crostini/Podman/Containerfiles/Terminal/fedora-toolbox.containerfile .
 
     # Build GUI-configured images
-    podman build -t arch-toolbox-gui -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.containerfile .
-    podman build -t debian-toolbox-gui -f ./Podman/Containerfiles/GUI/Debian-Toolbox-GUI/debian-toolbox-gui.containerfile .
-    podman build -t fedora-toolbox-gui -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.containerfile .
+    podman build -t arch-toolbox-gui -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.containerfile .
+    podman build -t debian-toolbox-gui -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Debian-Toolbox-GUI/debian-toolbox-gui.containerfile .
+    podman build -t fedora-toolbox-gui -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.containerfile .
     
     # Build application-configured images - Arch
-    podman build -t arch-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.containerfile .
-    podman build -t arch-toolbox-gui-yay -f ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.containerfile .
+    podman build -t arch-toolbox-gui-xfce -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.containerfile .
+    podman build -t arch-toolbox-gui-yay -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.containerfile .
 
     # Build application-configured images - Debian
-    podman build -t debian-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Debian-Toolbox-GUI-xfce/debian-toolbox-gui-xfce.containerfile .
+    podman build -t debian-toolbox-gui-xfce -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Debian-Toolbox-GUI-xfce/debian-toolbox-gui-xfce.containerfile .
     
     # Build application-configured images - Fedora
-    podman build -t fedora-toolbox-gui-brave -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.containerfile .
-    podman build -t fedora-toolbox-gui-xfce -f ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
+    podman build -t fedora-toolbox-gui-brave -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.containerfile .
+    podman build -t fedora-toolbox-gui-xfce -f ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.containerfile .
 
     # Copy runners
     mkdir ~/podman-runner
 
-    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.run.sh ~/podman-runner/arch-toolbox-gui.run.sh
-    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.run.sh ~/podman-runner/arch-toolbox-gui-xfce.run.sh
-    cp ./Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.run.sh ~/podman-runner/arch-toolbox-gui-yay.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI/arch-toolbox-gui.run.sh ~/podman-runner/arch-toolbox-gui.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.run.sh ~/podman-runner/arch-toolbox-gui-xfce.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.run.sh ~/podman-runner/arch-toolbox-gui-yay.run.sh
 
-    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
-    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 
-    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
-    cp ./Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave.run.sh ~/podman-runner/fedora-toolbox-gui-brave.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-Brave/fedora-toolbox-gui-brave-persistent.run.sh ~/podman-runner/fedora-toolbox-gui-brave-persistent.run.sh
 
     # Make all runners executable
     chmod +x ~/podman-runner/*.sh
