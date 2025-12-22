@@ -1,5 +1,5 @@
 #!/bin/sh
 
-sudo sh ./Setup_Crostini_Internal.sh $USER
+sudo sh ./chrome-os/Crostini/Setup_Crostini_Internal.sh $USER
 
-sh ./Setup_Crostini_Podman_Containers.sh
+sh ./chrome-os/Crostini/Setup_Crostini_Podman_Containers.sh
