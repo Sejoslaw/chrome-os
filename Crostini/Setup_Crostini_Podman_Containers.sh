@@ -41,6 +41,9 @@ then
     cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-xfce/arch-toolbox-gui-xfce.run.sh ~/podman-runner/arch-toolbox-gui-xfce.run.sh
     cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Arch-Toolbox-GUI-yay/arch-toolbox-gui-yay.run.sh ~/podman-runner/arch-toolbox-gui-yay.run.sh
 
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Debian-Toolbox-GUI/debian-toolbox-gui.run.sh ~/podman-runner/debian-toolbox-gui.run.sh
+    cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Debian-Toolbox-GUI-xfce/debian-toolbox-gui-xfce.run.sh ~/podman-runner/debian-toolbox-gui-xfce.run.sh
+
     cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI/fedora-toolbox-gui.run.sh ~/podman-runner/fedora-toolbox-gui.run.sh
     cp ./chrome-os/Crostini/Podman/Containerfiles/GUI/Fedora-Toolbox-GUI-xfce/fedora-toolbox-gui-xfce.run.sh ~/podman-runner/fedora-toolbox-gui-xfce.run.sh
 
