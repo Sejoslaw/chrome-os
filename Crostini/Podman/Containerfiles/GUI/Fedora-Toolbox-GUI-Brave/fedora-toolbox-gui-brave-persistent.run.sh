@@ -19,7 +19,6 @@ podman run -it --rm \
   --security-opt no-new-privileges \
   --device /dev/dri/card0:/dev/dri/card0 \
   --device /dev/dri/renderD128:/dev/dri/renderD128 \
-  -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
   -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/run/user/1000/wayland-0:ro \
   -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
   -v "$VOLUME_NAME":/home/fedorauser:Z \
