@@ -13,10 +13,9 @@ RUN useradd -m -G wheel fedorauser && echo "fedorauser ALL=(ALL) NOPASSWD: ALL" 
 
 USER fedorauser
 WORKDIR /home/fedorauser
+RUN sudo chown -R fedorauser:fedorauser /home/fedorauser
 
 RUN sudo dnf -y update
-
-RUN rm -f ~/.bashrc
 
 # Create customized prompt
 RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
