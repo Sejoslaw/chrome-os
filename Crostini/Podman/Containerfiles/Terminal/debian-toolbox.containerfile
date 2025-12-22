@@ -12,10 +12,9 @@ RUN useradd -m -s /bin/bash debianuser && usermod -aG sudo debianuser && echo "d
 
 USER debianuser
 WORKDIR /home/debianuser
+RUN sudo chown -R debianuser:debianuser /home/debianuser
 
 RUN sudo apt update
-
-RUN rm -f ~/.bashrc
 
 # Create customized prompt
 RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
