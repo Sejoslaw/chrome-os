@@ -40,9 +40,7 @@ apt install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y flathub com.github.tchx84.Flatseal
-flatpak install -y flathub io.podman_desktop.PodmanDesktop
 flatpak install -y flathub com.brave.Browser
 flatpak install -y flathub com.valvesoftware.Steam
 flatpak install -y flathub com.atlauncher.ATLauncher
 flatpak install -y flathub org.gnome.Boxes
-flatpak install -y flathub com.usebottles.bottles
