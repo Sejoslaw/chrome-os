@@ -43,7 +43,6 @@ flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.brave.Browser
 flatpak install -y flathub com.valvesoftware.Steam
 flatpak install -y flathub com.atlauncher.ATLauncher
-flatpak install -y flathub org.gnome.Boxes
 
 echo ""
 echo "################################################################"
