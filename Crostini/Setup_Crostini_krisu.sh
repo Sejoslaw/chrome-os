@@ -44,3 +44,13 @@ flatpak install -y flathub com.brave.Browser
 flatpak install -y flathub com.valvesoftware.Steam
 flatpak install -y flathub com.atlauncher.ATLauncher
 flatpak install -y flathub org.gnome.Boxes
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                  Setting up Containers...                  ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+sh ./chrome-os/Crostini/Setup_Crostini_Podman_Containers.sh
