@@ -11,6 +11,8 @@ apt update && apt full-upgrade -y && apt autoremove -y
 
 echo "" >> /home/$1/.bashrc
 echo "alias update-crostini='sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && flatpak update'" >> /home/$1/.bashrc
+echo "" >> /home/$1/.bashrc
+echo "alias boxes-start='sommelier -X --scale=1.0 --dpi=96 flatpak run org.gnome.Boxes'" >> /home/$1/.bashrc
 
 echo ""
 echo "################################################################"
@@ -27,3 +29,4 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.brave.Browser
 flatpak install -y flathub com.valvesoftware.Steam
+flatpak install -y flathub org.gnome.Boxes
