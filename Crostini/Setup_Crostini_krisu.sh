@@ -15,7 +15,7 @@ echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> 
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
-echo "##                   Setting up utilities...                  ##"
+echo "##                    Setting up Podman...                    ##"
 echo "##                                                            ##"
 echo "################################################################"
 echo ""
