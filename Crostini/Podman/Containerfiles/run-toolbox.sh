@@ -6,7 +6,7 @@ VOLUME_NAME="$NAME-volume"
 
 podman volume exists "$VOLUME_NAME" || podman volume create "$VOLUME_NAME"
 
-podman run -it --rm \
+podman run -it \
   --name=$NAME \
   --hostname=$NAME \
   --userns keep-id \
