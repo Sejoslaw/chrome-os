@@ -1,1 +1,0 @@
-podman build -t arch-toolbox-gui-yay -f arch-toolbox-gui-yay.containerfile .

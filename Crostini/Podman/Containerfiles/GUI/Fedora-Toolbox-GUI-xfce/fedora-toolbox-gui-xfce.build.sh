@@ -1,1 +1,0 @@
-podman build -t fedora-toolbox-gui-xfce -f fedora-toolbox-gui-xfce.containerfile .
