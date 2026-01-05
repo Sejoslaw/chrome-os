@@ -55,9 +55,6 @@ then
     
     # Prepare .bashrc file
     printf '
-
-alias update="sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y"
-
 disp-arch-toolbox() {
     podman run --rm -it arch-toolbox:latest
 }
