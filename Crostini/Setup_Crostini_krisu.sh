@@ -10,22 +10,19 @@ mv /usr/share/applications/vim.desktop /usr/share/applications/vim.desktop.old
 apt update && apt full-upgrade -y && apt autoremove -y
 
 echo "" >> /home/$1/.bashrc
-echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo flatpak update" >> /home/$1/.bashrc
-echo "" >> /home/$1/.bashrc
-echo "alias boxes-start='sommelier -X --scale=1.0 --dpi=96 flatpak run org.gnome.Boxes'" >> /home/$1/.bashrc
+echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$1/.bashrc
 
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
-echo "##                    Setting up Flatpaks...                  ##"
+echo "##                   Setting up utilities...                  ##"
 echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-apt install flatpak -y
+apt install podman distrobox -y
 
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-flatpak install -y flathub com.github.tchx84.Flatseal
-flatpak install -y flathub com.brave.Browser
-flatpak install -y flathub org.gnome.Boxes # /var/lib/flatpak/exports/share/applications/org.gnome.Boxes.desktop
+if ! grep -q "$0" /etc/subuid; then
+    echo "$0:100000:65536" | sudo tee -a /etc/subuid
+    echo "$0:100000:65536" | sudo tee -a /etc/subgid
+fi
