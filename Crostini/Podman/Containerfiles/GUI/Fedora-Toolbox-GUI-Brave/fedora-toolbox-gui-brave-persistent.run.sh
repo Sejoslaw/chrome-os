@@ -10,7 +10,6 @@ podman run -it --rm \
   --cpus=2 \
   --userns keep-id \
   --cap-drop=all \
-  --cap-add=net_raw \
   --cap-add=chown \
   --cap-add=setuid \
   --cap-add=setgid \
