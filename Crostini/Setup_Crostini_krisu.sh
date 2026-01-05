@@ -20,7 +20,7 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-apt install podman distrobox -y
+apt install podman -y
 
 if ! grep -q "$1" /etc/subuid; then
     echo "$1:100000:65536" | sudo tee -a /etc/subuid
