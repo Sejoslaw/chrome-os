@@ -90,9 +90,9 @@ if [ "$_installPodman" != "" ]
 then
     apt install podman -y
 
-    if ! grep -q "$0" /etc/subuid; then
-      echo "$0:100000:65536" | sudo tee -a /etc/subuid
-      echo "$0:100000:65536" | sudo tee -a /etc/subgid
+    if ! grep -q "$1" /etc/subuid; then
+      echo "$1:100000:65536" | sudo tee -a /etc/subuid
+      echo "$1:100000:65536" | sudo tee -a /etc/subgid
     fi
 fi
 
@@ -111,8 +111,8 @@ if [ "$_installVirtManager" != "" ]
 then
     apt install -y virt-manager libvirt-daemon-system libvirt-clients qemu-kvm
     
-    adduser $0 libvirt
-    adduser $0 kvm
+    adduser $1 libvirt
+    adduser $1 kvm
 
     systemctl enable libvirtd
     systemctl start libvirtd
@@ -127,7 +127,7 @@ read -p "## Install Docker (from Debian repository)? (yes/empty)" _installDocker
 if [ "$_installDocker" != "" ]
 then
     apt install docker.io docker-compose -y
-    usermod -aG docker $0
+    usermod -aG docker $1
 fi
 
 echo ""
