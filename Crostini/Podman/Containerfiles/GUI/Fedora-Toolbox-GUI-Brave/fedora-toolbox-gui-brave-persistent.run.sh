@@ -14,11 +14,11 @@ podman run -it --rm \
   --cap-add=chown \
   --cap-add=setuid \
   --cap-add=setgid \
-  --security-opt label=disable \
   --security-opt seccomp=unconfined \
   --security-opt no-new-privileges \
   --device /dev/dri/card0:/dev/dri/card0 \
   --device /dev/dri/renderD128:/dev/dri/renderD128 \
+  -e PULSE_SERVER=unix:/run/user/1000/pulse/native \
   -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/run/user/1000/wayland-0:ro \
   -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
   -v "$VOLUME_NAME":/home/fedorauser:Z \

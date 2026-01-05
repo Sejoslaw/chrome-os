@@ -13,6 +13,7 @@ podman run -it --rm \
   --security-opt seccomp=unconfined \
   --device /dev/dri/card0:/dev/dri/card0 \
   --device /dev/dri/renderD128:/dev/dri/renderD128 \
+  -e PULSE_SERVER=unix:/run/user/1000/pulse/native \
   -v $XDG_RUNTIME_DIR/wayland-0:$XDG_RUNTIME_DIR/wayland-0:ro \
   -v $XDG_RUNTIME_DIR/pulse:/run/user/1000/pulse:ro \
   --tmpfs /run/user/1000:mode=700,size=512M \
