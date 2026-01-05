@@ -22,7 +22,7 @@ echo ""
 
 apt install podman distrobox -y
 
-if ! grep -q "$0" /etc/subuid; then
-    echo "$0:100000:65536" | sudo tee -a /etc/subuid
-    echo "$0:100000:65536" | sudo tee -a /etc/subgid
+if ! grep -q "$1" /etc/subuid; then
+    echo "$1:100000:65536" | sudo tee -a /etc/subuid
+    echo "$1:100000:65536" | sudo tee -a /etc/subgid
 fi
