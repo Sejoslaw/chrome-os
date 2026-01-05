@@ -28,5 +28,4 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 
 flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.brave.Browser
-flatpak install -y flathub com.valvesoftware.Steam
 flatpak install -y flathub org.gnome.Boxes # /var/lib/flatpak/exports/share/applications/org.gnome.Boxes.desktop
