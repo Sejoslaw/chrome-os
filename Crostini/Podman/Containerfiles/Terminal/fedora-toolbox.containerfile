@@ -18,7 +18,7 @@ RUN sudo chown -R fedorauser:fedorauser /home/fedorauser
 RUN sudo dnf -y update
 
 # Create customized prompt
-RUN echo 'alias ls="ls --color=auto"' >> ~/.bashrc && \
+RUN echo 'alias ls="ls -al --color=auto"' >> ~/.bashrc && \
     echo 'alias grep="grep --color=auto"' >> ~/.bashrc && \
     echo "alias py='source ~/.venv/bin/activate'" >> ~/.bashrc && \
     echo 'parse_git_branch() { local branch=$(git branch --show-current 2>/dev/null); [ -n "$branch" ] && echo " > ($branch)"; }' >> ~/.bashrc && \
