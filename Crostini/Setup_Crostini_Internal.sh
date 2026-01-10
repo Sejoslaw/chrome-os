@@ -46,8 +46,11 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-apt remove vim -y && apt autoremove -y
+mv /usr/share/applications/vim.desktop /usr/share/applications/vim.desktop.old
 apt update && apt full-upgrade -y && apt autoremove -y
+
+echo "" >> /home/$1/.bashrc
+echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$1/.bashrc
 
 echo ""
 echo "################################################################"
@@ -165,6 +168,9 @@ then
 
     echo "## Adding Flathub repo..."
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    echo "" >> /home/$1/.bashrc
+    echo "sudo flatpak update" >> /home/$1/.bashrc
 
     echo ""
     read -p "## [Flatpak] Install Steam? (yes/empty)" _flatpakSteam;

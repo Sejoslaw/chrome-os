@@ -13,5 +13,4 @@ Or you can use my config directly
 cd /tmp
 git clone https://github.com/Sejoslaw/chrome-os
 sudo sh ./chrome-os/Crostini/Setup_Crostini_krisu.sh $USER
-sh ./chrome-os/Crostini/Setup_Crostini_Podman_Containers.sh
 ```
