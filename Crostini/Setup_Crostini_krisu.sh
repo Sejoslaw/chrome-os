@@ -31,11 +31,5 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
-apt update && apt install brave-browser -y
-mv /usr/share/applications/com.brave.Browser.desktop /usr/share/applications/com.brave.Browser.desktop.old
-
 flatpak install -y flathub com.github.tchx84.Flatseal
-flatpak install -y flathub org.gnome.Boxes # /var/lib/flatpak/exports/share/applications/org.gnome.Boxes.desktop <-- "sommelier -X --scale=1.0 --dpi=96"
-flatpak install -y flathub com.visualstudio.code
+flatpak install -y flathub com.brave.Browser
