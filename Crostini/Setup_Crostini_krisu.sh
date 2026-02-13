@@ -33,3 +33,4 @@ echo ""
 
 flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.brave.Browser
+flatpak install -y flathub org.gnome.Boxes # /var/lib/flatpak/exports/share/applications/org.gnome.Boxes.desktop <-- "sommelier -X --scale=1.0 --dpi=96"
