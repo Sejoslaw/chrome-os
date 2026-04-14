@@ -20,4 +20,4 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
-sudo apt install --no-install-recommends chromium
+sudo apt install --no-install-recommends chromium -y
