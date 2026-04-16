@@ -2,15 +2,11 @@
 Various utilities for Chrome OS
 
 ```bash
-cd /tmp
-git clone https://github.com/Sejoslaw/chrome-os
-sh ./chrome-os/Crostini/Setup_Crostini.sh
+curl -fsSL https://raw.githubusercontent.com/Sejoslaw/chrome-os/refs/heads/main/Crostini/Setup_Crostini.sh | sh
 ```
 
 Or you can use my config directly
 
 ```bash
-cd /tmp
-git clone https://github.com/Sejoslaw/chrome-os
-sh ./chrome-os/Crostini/Setup_Crostini_krisu.sh $USER
+curl -fsSL https://raw.githubusercontent.com/Sejoslaw/chrome-os/refs/heads/main/Crostini/Setup_Crostini_krisu.sh | sudo sh -s -- "$USER"
 ```
