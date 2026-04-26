@@ -33,6 +33,4 @@ echo ""
 
 sudo flatpak install -y flathub \
   com.github.tchx84.Flatseal \
-  com.brave.Browser \
-  org.virt_manager.virt-manager \
-  org.virt_manager.virt_manager.Extension.Qemu
+  com.brave.Browser
