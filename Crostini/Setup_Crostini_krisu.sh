@@ -10,5 +10,5 @@ sudo mv /usr/share/applications/vim.desktop /usr/share/applications/vim.desktop.
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
 echo "" >> /home/$1/.bashrc
-echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo flatpak update" >> /home/$1/.bashrc
+echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$1/.bashrc
 
