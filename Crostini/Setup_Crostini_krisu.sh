@@ -42,10 +42,10 @@ flatpak override com.brave.Browser \
   --nofilesystem=xdg-run/pipewire-0 \
   --nofilesystem=xdg-run/dconf \
   --nofilesystem=xdg-download \
-  --nofilesystem=~/.local/share/icons:create \
-  --nofilesystem=~/.config/dconf:ro \
+  --nofilesystem=~/.local/share/icons \
+  --nofilesystem=~/.config/dconf \
   --nofilesystem=/run/.heim_org.h5l.kcm-socket \
-  --nofilesystem=~/.local/share/applications:create \
+  --nofilesystem=~/.local/share/applications \
   --nofilesystem=/tmp \
   --nofilesystem=~/.config/kioslaverc \
   --system-no-talk-name=org.bluez \
