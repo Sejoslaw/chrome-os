@@ -28,3 +28,40 @@ echo "sudo flatpak update" >> /home/$1/.bashrc
 sudo flatpak install -y flathub \
   com.github.tchx84.Flatseal \
   com.brave.Browser
+
+flatpak override com.brave.Browser \
+  --user \
+  --nosocket=pcsc \
+  --nosocket=cups \
+  --nodevice=all \
+  --device=dri \
+  --disallow=bluetooth \
+  --nofilesystem=host-etc \
+  --filesystem=/home/$1/Downloads \
+  --nofilesystem=xdg-desktop \
+  --nofilesystem=xdg-run/pipewire-0 \
+  --nofilesystem=xdg-run/dconf \
+  --nofilesystem=xdg-download \
+  --nofilesystem=~/.local/share/icons:create \
+  --nofilesystem=~/.config/dconf:ro \
+  --nofilesystem=/run/.heim_org.h5l.kcm-socket \
+  --nofilesystem=~/.local/share/applications:create \
+  --nofilesystem=/tmp \
+  --nofilesystem=~/.config/kioslaverc \
+  --system-no-talk-name=org.bluez \
+  --system-no-talk-name=org.freedesktop.UPower \
+  --system-no-talk-name=org.freedesktop.Avahi \
+  --no-talk-name=org.gnome.ScreenSaver \
+  --no-talk-name=org.kde.kwalletd6 \
+  --no-talk-name=org.gnome.SessionManager \
+  --no-talk-name=com.canonical.AppMenu.Registrar \
+  --no-talk-name=ca.desrt.dconf \
+  --no-talk-name=org.freedesktop.secrets \
+  --no-talk-name=org.cinnamon.ScreenSaver \
+  --no-talk-name=org.freedesktop.ScreenSaver \
+  --no-talk-name=org.gnome.Mutter.IdleMonitor.* \
+  --no-talk-name=org.xfce.ScreenSaver \
+  --no-talk-name=org.mate.ScreenSaver \
+  --no-talk-name=org.kde.kwalletd5 \
+  --no-talk-name=org.freedesktop.FileManager1 \
+  --no-talk-name=org.freedesktop.Notifications
