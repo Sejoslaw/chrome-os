@@ -65,3 +65,24 @@ flatpak override com.brave.Browser \
   --no-talk-name=org.kde.kwalletd5 \
   --no-talk-name=org.freedesktop.FileManager1 \
   --no-talk-name=org.freedesktop.Notifications
+
+sudo flatpak install -y flathub \
+  org.virt_manager.virt-manager \
+  org.virt_manager.virt_manager.Extension.Qemu
+
+flatpak override org.virt_manager.virt-manager \
+  --user \
+  --nodevice=all \
+  --device=kvm \
+  --filesystem=/home/$1/Downloads \
+  --nofilesystem=~/.ssh \
+  --nofilesystem=xdg-documents \
+  --nofilesystem=xdg-run/libvirt \
+  --nofilesystem=xdg-download \
+  --nofilesystem=xdg-videos \
+  --nofilesystem=/run/libvirt \
+  --nofilesystem=xdg-public-share \
+  --nofilesystem=xdg-pictures \
+  --nofilesystem=xdg-music \
+  --no-talk-name=org.freedesktop.secrets \
+  --no-talk-name=org.kde.StatusNotifierWatcher
