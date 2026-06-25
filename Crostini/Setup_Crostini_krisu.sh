@@ -86,3 +86,8 @@ flatpak override org.virt_manager.virt-manager \
   --nofilesystem=xdg-music \
   --no-talk-name=org.freedesktop.secrets \
   --no-talk-name=org.kde.StatusNotifierWatcher
+
+echo '' >> /home/$1/.bashrc
+echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager -c qemu:///session"' >> /home/$1/.bashrc
+echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager -c qemu:///session"' >> /home/$1/.bashrc
+echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
