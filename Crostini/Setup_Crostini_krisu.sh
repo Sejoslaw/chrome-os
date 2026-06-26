@@ -89,7 +89,9 @@ flatpak override org.virt_manager.virt-manager \
   --no-talk-name=org.kde.StatusNotifierWatcher
 
 echo '' >> /home/$1/.bashrc
-echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
-echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
-echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
+echo 'alias virsh="flatpak run org.virt_manager.virt-manager --connect qemu:///session --command=virsh"' >> /home/$1/.bashrc
+echo 'alias virt-install="flatpak run org.virt_manager.virt-manager --connect qemu:///session --command=virt-install"' >> /home/$1/.bashrc
+echo 'alias virt-clone="flatpak run org.virt_manager.virt-manager --connect qemu:///session --command=virt-clone"' >> /home/$1/.bashrc
 echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
+
+source /home/$1/.bashrc
