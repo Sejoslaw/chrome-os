@@ -73,7 +73,7 @@ sudo flatpak install -y flathub \
 
 flatpak override org.virt_manager.virt-manager \
   --user \
-  --nosocket=ssh-auth
+  --nosocket=ssh-auth \
   --nodevice=all \
   --device=kvm \
   --filesystem=/home/$1/Downloads \
