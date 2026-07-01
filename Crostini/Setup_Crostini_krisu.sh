@@ -95,4 +95,28 @@ echo 'alias virt-install="flatpak run org.virt_manager.virt-manager --connect qe
 echo 'alias virt-clone="flatpak run org.virt_manager.virt-manager --connect qemu:///session --command=virt-clone"' >> /home/$1/.bashrc
 echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> /home/$1/.bashrc
 
+sudo flatpak install -y flathub \
+  io.github.totoshko88.RustConn
+
+flatpak override io.github.totoshko88.RustConn \
+  --user \
+  --unshare=ipc \
+  --nosocket=fallback-x11 \
+  --nosocket=ssh-auth \
+  --nodevice=all \
+  --device=dri \
+  --nofilesystem=xdg-download \
+  --nofilesystem=~/.config/gcloud \
+  --nofilesystem=~/.azure \
+  --nofilesystem=~/.ssh \
+  --nofilesystem=~/.kube \
+  --nofilesystem=~/.aws \
+  --no-talk-name=org.keepassxc.KeePassXC.BrowserServer \
+  --no-talk-name=org.kde.kwalletd6 \
+  --no-talk-name=org.freedesktop.secrets \
+  --no-talk-name=org.freedesktop.Flatpak \
+  --no-talk-name=org.kde.kwalletd5 \
+  --no-talk-name=org.kde.StatusNotifierWatcher \
+  --persist=~/.ssh
+
 source /home/$1/.bashrc
