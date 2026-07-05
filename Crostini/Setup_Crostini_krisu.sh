@@ -32,6 +32,7 @@ sudo flatpak install -y flathub \
 
 flatpak override com.brave.Browser \
   --user \
+  --unshare=ipc \
   --nosocket=x11 \
   --nosocket=pcsc \
   --nosocket=cups \
@@ -74,6 +75,7 @@ sudo flatpak install -y flathub \
 
 flatpak override org.virt_manager.virt-manager \
   --user \
+  --unshare=ipc \
   --nosocket=x11 \
   --nosocket=fallback-x11 \
   --nosocket=ssh-auth \
