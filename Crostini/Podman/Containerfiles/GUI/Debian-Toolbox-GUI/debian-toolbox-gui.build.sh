@@ -1,1 +1,0 @@
-podman build -t debian-toolbox-gui -f debian-toolbox-gui.containerfile .
