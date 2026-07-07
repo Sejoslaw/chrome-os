@@ -9,8 +9,8 @@ echo ""
 sudo mv /usr/share/applications/vim.desktop /usr/share/applications/vim.desktop.old
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
-echo "" >> /home/$1/.bashrc
-echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$1/.bashrc
+echo "" >> ~/.bashrc
+echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> ~/.bashrc
 
 echo ""
 echo "################################################################"
@@ -23,8 +23,8 @@ echo ""
 sudo apt install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-echo "" >> /home/$1/.bashrc
-echo "sudo flatpak update" >> /home/$1/.bashrc
+echo "" >> ~/.bashrc
+echo "sudo flatpak update" >> ~/.bashrc
 
 sudo flatpak install -y flathub \
   com.github.tchx84.Flatseal \
@@ -40,7 +40,7 @@ flatpak override com.brave.Browser \
   --device=dri \
   --disallow=bluetooth \
   --nofilesystem=host-etc \
-  --filesystem=/home/$1/Downloads \
+  --filesystem=~/Downloads \
   --nofilesystem=xdg-desktop \
   --nofilesystem=xdg-run/pipewire-0 \
   --nofilesystem=xdg-run/dconf \
@@ -81,7 +81,7 @@ flatpak override org.virt_manager.virt-manager \
   --nosocket=ssh-auth \
   --nodevice=all \
   --device=kvm \
-  --filesystem=/home/$1/Downloads \
+  --filesystem=~/Downloads \
   --nofilesystem=~/.ssh \
   --nofilesystem=xdg-documents \
   --nofilesystem=xdg-run/libvirt \
@@ -94,10 +94,10 @@ flatpak override org.virt_manager.virt-manager \
   --no-talk-name=org.freedesktop.secrets \
   --no-talk-name=org.kde.StatusNotifierWatcher
 
-echo '' >> /home/$1/.bashrc
-echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
-echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
-echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$1/.bashrc
-echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> /home/$1/.bashrc
+echo '' >> ~/.bashrc
+echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
+echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
+echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
+echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> ~/.bashrc
 
-source /home/$1/.bashrc
+source ~/.bashrc
