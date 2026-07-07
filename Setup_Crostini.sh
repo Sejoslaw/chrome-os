@@ -40,7 +40,7 @@ flatpak override com.brave.Browser \
   --device=dri \
   --disallow=bluetooth \
   --nofilesystem=host-etc \
-  --filesystem=~/Downloads \
+  --filesystem=/home/$USER/Downloads \
   --nofilesystem=xdg-desktop \
   --nofilesystem=xdg-run/pipewire-0 \
   --nofilesystem=xdg-run/dconf \
@@ -81,7 +81,7 @@ flatpak override org.virt_manager.virt-manager \
   --nosocket=ssh-auth \
   --nodevice=all \
   --device=kvm \
-  --filesystem=~/Downloads \
+  --filesystem=/home/$USER/Downloads \
   --nofilesystem=~/.ssh \
   --nofilesystem=xdg-documents \
   --nofilesystem=xdg-run/libvirt \
