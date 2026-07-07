@@ -9,8 +9,8 @@ echo ""
 sudo mv /usr/share/applications/vim.desktop /usr/share/applications/vim.desktop.old
 sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
-echo "" >> ~/.bashrc
-echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> ~/.bashrc
+echo "" >> /home/$USER/.bashrc
+echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$USER/.bashrc
 
 echo ""
 echo "################################################################"
@@ -23,8 +23,8 @@ echo ""
 sudo apt install flatpak -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-echo "" >> ~/.bashrc
-echo "sudo flatpak update" >> ~/.bashrc
+echo "" >> /home/$USER/.bashrc
+echo "sudo flatpak update" >> /home/$USER/.bashrc
 
 sudo flatpak install -y flathub \
   com.github.tchx84.Flatseal \
@@ -94,10 +94,10 @@ flatpak override org.virt_manager.virt-manager \
   --no-talk-name=org.freedesktop.secrets \
   --no-talk-name=org.kde.StatusNotifierWatcher
 
-echo '' >> ~/.bashrc
-echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
-echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
-echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> ~/.bashrc
-echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> ~/.bashrc
+echo '' >> /home/$USER/.bashrc
+echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
 
-source ~/.bashrc
+source /home/$USER/.bashrc
