@@ -1,7 +1,7 @@
 echo ""
 echo "################################################################"
 echo "##                                                            ##"
-echo "##                    Updating Crostini...                    ##"
+echo "##                        Updating...                         ##"
 echo "##                                                            ##"
 echo "################################################################"
 echo ""
@@ -11,6 +11,18 @@ sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
 
 echo "" >> /home/$USER/.bashrc
 echo "sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y" >> /home/$USER/.bashrc
+
+echo ""
+echo "################################################################"
+echo "##                                                            ##"
+echo "##                       Setting up...                        ##"
+echo "##                                                            ##"
+echo "################################################################"
+echo ""
+
+curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
 
 echo ""
 echo "################################################################"
