@@ -22,7 +22,6 @@ echo ""
 
 curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
-rm google-chrome-stable_current_amd64.deb
 
 echo ""
 echo "################################################################"
@@ -107,9 +106,23 @@ flatpak override org.virt_manager.virt-manager \
   --no-talk-name=org.kde.StatusNotifierWatcher
 
 echo '' >> /home/$USER/.bashrc
+
 echo 'alias virsh="flatpak run --command=virsh org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
-echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+
+echo 'alias virt-admin="flatpak run --command=virt-admin org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
 echo 'alias virt-clone="flatpak run --command=virt-clone org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+echo 'alias virt-install="flatpak run --command=virt-install org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
 echo 'alias virt-manager="flatpak run org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias virt-xml="flatpak run --command=virt-xml org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+echo 'alias virt-xml-validate="flatpak run --command=virt-xml-validate org.virt_manager.virt-manager --connect qemu:///session"' >> /home/$USER/.bashrc
+
+echo 'alias qemu-img="flatpak run --command=qemu-img org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias qemu-io="flatpak run --command=qemu-io org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias qemu-keymap="flatpak run --command=qemu-keymap org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+
+echo 'alias qemu-system-aarch64="flatpak run --command=qemu-system-aarch64 org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias qemu-system-arm="flatpak run --command=qemu-system-arm org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias qemu-system-i386="flatpak run --command=qemu-system-i386 org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
+echo 'alias qemu-system-x86_64="flatpak run --command=qemu-system-x86_64 org.virt_manager.virt-manager"' >> /home/$USER/.bashrc
 
 source /home/$USER/.bashrc
