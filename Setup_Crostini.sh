@@ -20,8 +20,12 @@ echo "##                                                            ##"
 echo "################################################################"
 echo ""
 
+#Google Chrome
 curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
+
+# Brave Browser
+curl -fsS https://dl.brave.com/install.sh | sh
 
 echo ""
 echo "################################################################"
@@ -39,48 +43,6 @@ echo "sudo flatpak update -y" >> /home/$USER/.bashrc
 
 sudo flatpak install -y flathub \
   com.github.tchx84.Flatseal \
-  com.brave.Browser
-
-flatpak override com.brave.Browser \
-  --user \
-  --unshare=ipc \
-  --nosocket=x11 \
-  --nosocket=pcsc \
-  --nosocket=cups \
-  --nodevice=all \
-  --device=dri \
-  --disallow=bluetooth \
-  --nofilesystem=host-etc \
-  --filesystem=/home/$USER/Downloads \
-  --nofilesystem=xdg-desktop \
-  --nofilesystem=xdg-run/pipewire-0 \
-  --nofilesystem=xdg-run/dconf \
-  --nofilesystem=xdg-download \
-  --nofilesystem=~/.local/share/icons \
-  --nofilesystem=~/.config/dconf \
-  --nofilesystem=/run/.heim_org.h5l.kcm-socket \
-  --nofilesystem=~/.local/share/applications \
-  --nofilesystem=/tmp \
-  --nofilesystem=~/.config/kioslaverc \
-  --system-no-talk-name=org.bluez \
-  --system-no-talk-name=org.freedesktop.UPower \
-  --system-no-talk-name=org.freedesktop.Avahi \
-  --no-talk-name=org.gnome.ScreenSaver \
-  --no-talk-name=org.kde.kwalletd6 \
-  --no-talk-name=org.gnome.SessionManager \
-  --no-talk-name=com.canonical.AppMenu.Registrar \
-  --no-talk-name=ca.desrt.dconf \
-  --no-talk-name=org.freedesktop.secrets \
-  --no-talk-name=org.cinnamon.ScreenSaver \
-  --no-talk-name=org.freedesktop.ScreenSaver \
-  --no-talk-name=org.gnome.Mutter.IdleMonitor.* \
-  --no-talk-name=org.xfce.ScreenSaver \
-  --no-talk-name=org.mate.ScreenSaver \
-  --no-talk-name=org.kde.kwalletd5 \
-  --no-talk-name=org.freedesktop.FileManager1 \
-  --no-talk-name=org.freedesktop.Notifications
-
-sudo flatpak install -y flathub \
   org.virt_manager.virt-manager \
   org.virt_manager.virt_manager.Extension.Qemu
 
